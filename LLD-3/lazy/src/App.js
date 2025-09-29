@@ -1,20 +1,73 @@
 import logo from "./logo.svg";
 import "./App.css";
-import About from "./components/About";
-import Home from "./components/Home";
-import Contact from "./components/Contact";
-import Navbar from "./components/Navbar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 function App() {
+  const [HomePage, setHomePage] = useState(null);
+  const [AboutPage, setAboutPage] = useState(null);
+  const [ContactPage, setContactPage] = useState(null);
+
+  useEffect(() => {
+    import("./components/Home.js").then((module) =>
+      setHomePage(() => module.default)
+    );
+  }, []);
+
+  const loadHomePage = () => {
+    import("./components/Home.js").then((module) =>
+      setHomePage(() => module.default)
+    ).catch((err)=>{
+      console(err)
+    });
+  };
+
+  const loadContactPage = () => {
+    import("./components/Contact.js").then((module) =>
+      setContactPage(() => module.default)
+    );
+  };
+
+  const loadAboutPage = () => {
+    import("./components/About.js").then((module) =>
+      setAboutPage(() => module.default)
+    );
+  };
+
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <nav>
+          <ul>
+            <li>
+              <Link onClick={loadHomePage} to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link onClick={loadAboutPage} to="/about">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link onClick={loadContactPage} to="/contact">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact/>} />
+          <Route path="/" element={HomePage? <HomePage /> : <h1>Loading..</h1>} />
+          <Route
+            path="/about"
+            element={AboutPage ? <AboutPage /> : <h1>Loading..</h1>}
+          />
+          <Route
+            path="/contact"
+            element={ContactPage ? <ContactPage/> : <h1>Loading...</h1>}
+          />
         </Routes>
       </BrowserRouter>
     </>
