@@ -34,13 +34,14 @@ function App() {
             </li>
           </ul>
         </nav>
-       <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<h1>Loading...</h1>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
         </Suspense>
+      
       </BrowserRouter>
     </>
   );
