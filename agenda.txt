@@ -7,3 +7,19 @@ Movie Trailers
 
 
 Gemini API_key = AIzaSyCjV4RlOTjdeNi1Woj4XmWVg9W-SCVVd5s
+
+
+Agenda - Starting at 9:10
+
+Code Splittng , Dynamic Imports and Lazy Loading 
+and Suspense
+
+
+
+
+
+
+
+
+
+
