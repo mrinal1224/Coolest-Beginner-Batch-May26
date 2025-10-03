@@ -1,19 +1,18 @@
-
-import './App.css'
-import MemoComponent from './components/MemoComponent'
-import Memo from './components/Memo'
-import Ref from './components/Ref'
+// src/App.jsx
+import React from "react";
+import useToggle from "./components/useToggle.jsx";
 
 function App() {
-
+  const [isOn, toggleIsOn] = useToggle(false);
 
   return (
-    <>
-       {/* <MemoComponent/> */}
-       {/* <Memo/> */}
-       <Ref/>
-    </>
-  )
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>{isOn ? "The Light is ON 💡" : "The Light is OFF 🌑"}</h1>
+      <button onClick={toggleIsOn}>
+        {isOn ? "Turn Off" : "Turn On"}
+      </button>
+    </div>
+  );
 }
 
-export default App
+export default App;
