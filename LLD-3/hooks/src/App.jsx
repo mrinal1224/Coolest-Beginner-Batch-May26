@@ -1,18 +1,17 @@
-// src/App.jsx
-import React from "react";
-import useToggle from "./components/useToggle.jsx";
+import React, { useState } from 'react'
+import Timer from './components/Timer'
 
 function App() {
-  const [isOn, toggleIsOn] = useToggle(false);
+  const [showTimer , setShowTimer]= useState(false)
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>{isOn ? "The Light is ON 💡" : "The Light is OFF 🌑"}</h1>
-      <button onClick={toggleIsOn}>
-        {isOn ? "Turn Off" : "Turn On"}
+      <button onClick={() => setShowTimer((prev) => !prev)}>
+        {showTimer ? "Stop Timer" : "Start Timer"}
       </button>
+      {showTimer && <Timer />}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
