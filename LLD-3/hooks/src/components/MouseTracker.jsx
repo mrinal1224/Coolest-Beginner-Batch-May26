@@ -15,6 +15,12 @@ function MouseTracker({ track }) {
     console.log(`🎯 Now tracking ${track.toUpperCase()} coordinate`);
 
     // cleanup before next effect or unmount
+    return ()=>{
+    window.removeEventListener("mousemove", handleMouseMove);
+    console.log(`🧹 Stopped tracking ${track.toUpperCase()}`);
+    }
+   
+
     
   }, [track]); // cleanup runs each time 'track' changes
 
