@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
-import Timer from './components/Timer'
+import { useState } from 'react';
+import MouseTracker from './components/MouseTracker'
 
-function App() {
-  const [showTimer , setShowTimer]= useState(false)
+export default function App() {
+  const [track, setTrack] = useState("x");
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <button onClick={() => setShowTimer((prev) => !prev)}>
-        {showTimer ? "Stop Timer" : "Start Timer"}
+      <button onClick={() => setTrack(track === "x" ? "y" : "x")}>
+        Toggle Tracking ({track === "x" ? "Y" : "X"})
       </button>
-      {showTimer && <Timer />}
+      <MouseTracker track={track} />
     </div>
-  )
+  );
 }
-
-export default App
