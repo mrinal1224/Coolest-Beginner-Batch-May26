@@ -8,14 +8,14 @@ function App() {
 
   return (
     <div className="App">
-        {/* <ul>
+        <ul>
           <li>Apple</li>
           <li>Orange</li>
           <li>Grapes</li>
           <li>Water Melon</li>
         </ul>
         <h1 data-testid='heading1'>I am Heading 1</h1>
-        <span data-testid='span1' >{a+b}</span> */}
+        <span data-testid='span1' >{a+b}</span>
         <Login/>
     </div>
   );
