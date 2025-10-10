@@ -16,7 +16,7 @@ function Login() {
   };
   return (
     <div>
-      <form>
+      <form data-testid='login-form' onSubmit={handleLogin}>
         <label style={{ margin: "20px" }}>UserName</label>
         <input
           type="text"
@@ -37,7 +37,8 @@ function Login() {
             margin: "20px",
           }}
           disabled={!userName || !password}
-          onClick={handleLogin}
+ 
+          type="submit"
         >
           Login
         </button>
