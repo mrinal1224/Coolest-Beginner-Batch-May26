@@ -57,10 +57,23 @@ app.post('/topics/courses', (req , res)=>{
 
 
 
-// update 
+// update - put
+app.put('/topics/courses/:id' , (req , res)=>{
+  let course = courses.find((course)=>course.id===parseInt(req.params.id))
+
+  course.isActive = req.body.isActive
+  course.instructor = req.body.instructor
+
+  res.send(course)
+})
+
 
 
 // delete
+
+app.delete('/topics/courses/:id' , (req , res)=>{
+    // complete this block
+})
 
 
 
