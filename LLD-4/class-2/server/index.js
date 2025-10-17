@@ -33,7 +33,7 @@ app.get('/topics/courses/:id' , (req ,res)=>{
     if(!course){
         return res.send('Course with the id not found')
     }
-    res.send(course)
+    res.status(200).send(course)
 })
 
 
@@ -52,7 +52,7 @@ app.post('/topics/courses', (req , res)=>{
 
      courses.push(course)
 
-     res.send(courses)
+     res.status(201).send(courses)
 })
 
 
