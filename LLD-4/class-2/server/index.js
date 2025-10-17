@@ -1,6 +1,9 @@
 const express = require('express')
 
+
 const app = express()
+
+app.use(express.json())
 
 const courses = [
     {id:1 , name:'Java' , instructor:"Atif" , ratings:4.8 , isActive:true},
@@ -36,6 +39,21 @@ app.get('/topics/courses/:id' , (req ,res)=>{
 
 
 // How to create something  - post 
+
+app.post('/topics/courses', (req , res)=>{
+     let course = {
+        id : req.body.id,
+        name : req.body.name,
+        instructor:req.body.instructor,
+        ratings : req.body.ratings,
+        isActive: req.body.isActive
+
+     }
+
+     courses.push(course)
+
+     res.send(courses)
+})
 
 
 
