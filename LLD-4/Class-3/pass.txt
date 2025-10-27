@@ -1,0 +1,4 @@
+pass - CdJ7SHLy7Pjs4Tp4
+mrinal12
+
+url - mongodb+srv://mrinal12:CdJ7SHLy7Pjs4Tp4@cluster0.sweiye6.mongodb.net/?appName=Cluster0
